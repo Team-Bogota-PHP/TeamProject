@@ -2,22 +2,31 @@
 <html>
 <body>
 
-<form action="upload.php" method="post" enctype="multipart/form-data">
-    Select image to upload:
-    <input type="file" name="fileToUpload" id="fileToUpload">
-    <input type="submit" value="Upload Image" name="submit">
+
+/* file upload for multiple images does not work */
+<form action="upload.php" method="post" id="form" enctype="multipart/form-data">
+    <div class="clone">
+        Select image to upload:
+        <input type="file" name="fileToUpload" id="fileToUpload">
+        <input type="submit" value="Upload Image" name="submit">
+    </div>
+
 </form>
+
+<button type="button" onclick="addElement()">Add Language</button>
+<button type="button" onclick='removeElement()'>Remove Language</button>
 
 </body>
 </html>
 
 <?php
-$targetDir = 'uploads/';
-$targetName = $targetDir . basename($_FILES['fileToUpload']['name']);
-$uploadOK = true;
-$fileType = pathinfo($targetName, PATHINFO_EXTENSION);
-//Check if actual image
+
 if (isset($_POST['submit'])) {
+    $targetDir = 'uploads/';
+    $targetName = $targetDir . basename($_FILES['fileToUpload']['name']);
+    $uploadOK = true;
+    $fileType = pathinfo($targetName, PATHINFO_EXTENSION);
+    //Check if actual image
     $check = getimagesize($_FILES['fileToUpload']['tmp_name']);
     if (!$check) {
         echo "File is not an image. ";
@@ -48,3 +57,21 @@ if (isset($_POST['submit'])) {
     }
 }
 ?>
+
+
+<script>
+    var counter = 0;
+    function addElement() {
+        var element = document.getElementsByClassName("clone")[counter];
+        var clone = element.cloneNode(true);
+        form.appendChild(clone);
+        counter++;
+    }
+    function removeElement(){
+        if(counter != 0) {
+            counter--;
+            form.removeChild(document.getElementsByClassName("clone")[counter + 1]);
+        }
+    }
+
+</script>

@@ -1,0 +1,3 @@
+<footer>
+    Team BOGOTA®
+</footer>

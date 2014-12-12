@@ -3,75 +3,57 @@
 <body>
 
 
-/* file upload for multiple images does not work */
-<form action="upload.php" method="post" id="form" enctype="multipart/form-data">
-    <div class="clone">
-        Select image to upload:
-        <input type="file" name="fileToUpload" id="fileToUpload">
-        <input type="submit" value="Upload Image" name="submit">
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Upload Multiple Images Form</title>
+    <!-------Including jQuery from Google ------>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="styles/upload.css"/>
+<body>
+<div id="maindiv">
+    <div id="formdiv">
+        <h2>Multiple Image Upload Form</h2>
+
+        <form enctype="multipart/form-data" action="" method="post">
+            First Field is Compulsory. Only JPEG,PNG,JPG,GIF Type Image Allowed. Image Size Should Be Less Than 2MB.
+            <div id="filediv"><input name="file[]" type="file" id="file"/><br/><br/></div>
+            <input type="button" id="addMore" class="upload" value="Add More Files"/>
+            <input type="submit" value="Upload File" name="submit" id="upload" class="upload"/>
+        </form>
     </div>
-
-</form>
-
-<button type="button" onclick="addElement()">Add Language</button>
-<button type="button" onclick='removeElement()'>Remove Language</button>
-
+</div>
 </body>
 </html>
 
 <?php
-
 if (isset($_POST['submit'])) {
-    $targetDir = 'uploads/';
-    $targetName = $targetDir . basename($_FILES['fileToUpload']['name']);
-    $uploadOK = true;
-    $fileType = pathinfo($targetName, PATHINFO_EXTENSION);
-    //Check if actual image
-    $check = getimagesize($_FILES['fileToUpload']['tmp_name']);
-    if (!$check) {
-        echo "File is not an image. ";
-        $uploadOK = false;
-    }
+    $index = 0;
+    $targetPath = "uploads/";     // Declaring Path for uploaded images.
 
-// Check file size
-    if ($_FILES["fileToUpload"]["size"] > 5000000) {
-        echo "Sorry, your file is too large.<br />";
-        $uploadOK = false;
-    }
+// Loop to get individual element from the array
+    for ($i = 0; $i < count($_FILES['file']['name']); $i++) {
+        $validExtensions = array("jpeg", "jpg", "png", "gif");      // Valid extensions
+        $targetFile = $targetPath . basename($_FILES['file']['name'][$i]);
+        $fileExtension = pathinfo($targetFile, PATHINFO_EXTENSION);
+        $check = getimagesize($_FILES["file"]["tmp_name"][$i]);
+        // Set the target path with a new name of image.
+        $targetPath = $targetPath . md5(uniqid()) . "." . $fileExtension;
 
-//Allow only certain file types
-    if ($fileType != 'jpg' && $fileType != 'png' && $fileType != 'jpeg' && $fileType != 'gif') {
-        echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.<br />";
-        $uploadOK = false;
-    }
+        $index++;      // Increment the number of uploaded images according to the files in array.
 
-//Check if upload is OK
-    if ($uploadOK) {
-        $temp = explode(".", $_FILES["fileToUpload"]["name"]);
-        $newfilename = rand(1, 999999999) . '.' . end($temp);
-        if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], "uploads/img" . $newfilename)) {
-            echo "The file " . basename($_FILES['fileToUpload']['name']) . ' has been successfully uploaded<br />';
+        if ($check && ($_FILES["file"]["size"][$i] < 2000000) && in_array($fileExtension, $validExtensions)) {
+            if (move_uploaded_file($_FILES['file']['tmp_name'][$i], $targetPath)) { // If file moved to uploads folder.
+                echo $index . ').<span id="noerror">Image uploaded successfully!.</span><br/><br/>';
+            } else {     //  If File Was Not Moved.
+                echo $index . ').<span id="error">please try again!.</span><br/><br/>';
+            }
+        } else {     //   If File Size or File Type Was Incorrect.
+            echo $index . ').<span id="error">***Invalid file Size or Type***</span><br/><br/>';
         }
-    } else {
-        echo 'Sorry, there was an error uploading your file<br />';
     }
 }
 ?>
 
 
-<script>
-    var counter = 0;
-    function addElement() {
-        var element = document.getElementsByClassName("clone")[counter];
-        var clone = element.cloneNode(true);
-        form.appendChild(clone);
-        counter++;
-    }
-    function removeElement(){
-        if(counter != 0) {
-            counter--;
-            form.removeChild(document.getElementsByClassName("clone")[counter + 1]);
-        }
-    }
-
-</script>
+<script src="scripts/uploadJS.js"></script>

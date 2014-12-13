@@ -1,17 +1,26 @@
 <?php
 
-function update_user($update_data) {
-    $update = array();
-    array_walk($update_data, 'array_sanitize');
-
-    foreach ($update_data as $field=>$data) {
-        $update[] = '`' . $field . '` = \'' . $data . '\'';
+function recover($mode, $email) {
+    $mode = sanitize($mode);
+    $email = sanitize($email);
+    $user_data = user_data(user_id_from_email($email), 'first_name', 'username');
+    if($mode === 'username') {
+        email($email, 'Your username', "Hello " . $user_data['first_name']  . ",\n\nYour username is: " . $user_data['username'] . "\n\nTeam Bogota");
+    } else if($mode === 'password') {
+        $generated_password = substr(md5(rand(999, 999999)), 0, 8);
+        die($generated_password);
     }
 
 
+}
 
+function update_user($update_data) {
+    $update = array();
+    array_walk($update_data, 'array_sanitize');
+    foreach ($update_data as $field=>$data) {
+        $update[] = '`' . $field . '` = \'' . $data . '\'';
+    }
     mysql_query("UPDATE `users` SET " . implode(', ', $update) . " WHERE `user_id` = " . $_SESSION['user_id']);
-
 }
 
 
@@ -88,6 +97,10 @@ function user_id_from_username($username) {
     return mysql_result(mysql_query("SELECT `user_id` FROM `users` WHERE `username` = '$username'"), 0, 'user_id');
 }
 
+function user_id_from_email($email) {
+    $email = sanitize($email);
+    return mysql_result(mysql_query("SELECT `user_id` FROM `users` WHERE `email` = '$email'"), 0, 'user_id');
+}
 
 function login($username, $password) {
     $user_id = user_id_from_username($username);

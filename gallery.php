@@ -4,8 +4,13 @@ protect_page();
 include "overallHeader.php"
 ?>
 
-    <h1>Forum</h1>
+    <h1>Picture Gallery</h1>
     <p>Just a template.</p>
+    <ul>
+        <li>
+            <a href="upload.php">Upload Pictures</a>
+        </li>
+    </ul>
 
 
 

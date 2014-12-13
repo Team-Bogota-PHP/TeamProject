@@ -6,13 +6,13 @@
                 <a href="../TeamProject/logout.php">Log out</a>
             </li>
             <li>
+                <a href="<?php echo('profile.php?username='.$user_data['username']);?>">Profile</a>
+            </li>
+            <li>
                 <a href="../TeamProject/changepassword.php">Change password</a>
             </li>
             <li>
-                <a href="../TeamProject/settings.php">Profile Information</a>
-            </li>
-            <li>
-                <a href="../TeamProject/upload.php">Upload Pictures</a>
+                <a href="../TeamProject/settings.php">Settings</a>
             </li>
         </ul>
     </div>

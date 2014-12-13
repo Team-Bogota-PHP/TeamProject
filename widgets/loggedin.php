@@ -11,13 +11,9 @@
             <li>
                 <a href="../TeamProject/settings.php">Profile Information</a>
             </li>
+            <li>
+                <a href="../TeamProject/upload.php">Upload Pictures</a>
+            </li>
         </ul>
     </div>
 </div>
-
-<?php
-
-
-
-
-?>

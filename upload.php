@@ -1,12 +1,7 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Multiple Image Upload Form</title>
-    <!--    Including jQuery from Google-->
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="styles/upload.css"/>
-</head>
-<body>
+<?php
+include "core/init.php";
+include "overallHeader.php";
+?>
 <div id="wrapper">
     <h2>Multiple Image Upload Form</h2>
 
@@ -20,10 +15,8 @@
         <input type="submit" value="Upload File" name="submit" id="upload" class="upload"/>
     </form>
 </div>
-</body>
-</html>
-
 <?php
+include "overallFooter.php";
 include_once('database.php');
 if (isset($_POST['submit'])) {
     $index = 0; //

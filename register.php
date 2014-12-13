@@ -103,5 +103,5 @@ if(empty($_POST) === false) {
 
     <?php
     }
-    include "overallFooter.php"
+include "overallFooter.php";
 ?>

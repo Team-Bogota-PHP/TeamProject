@@ -45,7 +45,7 @@ if(empty($_POST) === false) {
 
 <h1>Register</h1>
 <?php
-    if(isset($_GET['success']) && empty($_GET['success'])) {
+    if(isset($_GET['success']) === true && empty($_GET['success']) === false) {
         echo('You have been registered successfully! Please check your email to activate your account');
     } else {
         if (empty($_POST) === false && empty($errors) === true) {

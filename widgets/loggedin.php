@@ -8,6 +8,9 @@
             <li>
                 <a href="../TeamProject/changepassword.php">Change password</a>
             </li>
+            <li>
+                <a href="../TeamProject/settings.php">Profile Information</a>
+            </li>
         </ul>
     </div>
 </div>

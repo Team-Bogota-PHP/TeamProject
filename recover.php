@@ -16,7 +16,7 @@ include "overallHeader.php"
             if (isset($_POST['email']) === true && empty($_POST['email']) === false) {
                 if (email_exists($_POST['email']) === true) {
                     recover($_GET['mode'], $_POST['email']);
-                    header('Location: recover.php?success');
+                    header('Location: recover.php?success=true');
                     exit();
                 } else {
                     echo '<p>We could not find your email address.<p>';

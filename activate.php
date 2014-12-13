@@ -24,7 +24,7 @@ if(isset($_GET['success']) === true && empty($_GET['success']) === true) {
         <?php
             echo(output_errors($errors));
         } else {
-            header('Location: activate.php?success');
+            header('Location: activate.php?success=true');
             exit();
         }
 

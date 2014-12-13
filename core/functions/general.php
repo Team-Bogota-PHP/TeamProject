@@ -1,7 +1,7 @@
 <?php
 
 function email($to, $subject, $body) {
-    mail($to, $subject, $body, 'From: georgi_iliev@yahoo.com');
+    mail($to, $subject, $body);//,'From: georgi_iliev@yahoo.com'
 
 }
 

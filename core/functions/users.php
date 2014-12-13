@@ -27,7 +27,7 @@ function update_user($update_data) {
 function activate($email, $email_code) {
     $email = mysql_real_escape_string($email);
     $email_code = mysql_real_escape_string($email_code);
-    if(mysql_result(mysql_query("SELECT COUNT(`users_id`) FROM `user` WHERE `email` = '$email' AND `email_code` = '$email_code' AND `active` = 0"), 0) == 1) {
+    if(mysql_result(mysql_query("SELECT COUNT(`user_id`) FROM `users` WHERE `email` = '$email' AND `email_code` = '$email_code' AND `active` = 0"), 0) == 1) {
         // update user to active status
         mysql_query("UPDATE `users` SET `active` = 1 WHERE `email` = '$email'");
         return true;
@@ -48,7 +48,7 @@ function register_user($register_data) {
     $fields =  '`' . implode('`, `', array_keys($register_data)) . '`';
     $data = '\'' . implode('\', \'', $register_data) . '\'';
     mysql_query("INSERT INTO `users` ($fields) VALUES ($data)");
-    email($register_data['email'], 'Activate your account', "Hello " . $register_data['first_name'] . ",\n\nYou need to activate your account, please use the link below:\n\nhttp://localhost/TeamProject/activate.php?email=" . $register_data['email'] . "&email_code=" . $register_data['email_code'] . "\n\n Best Regards Team Bogota");
+    email($register_data['email'], 'Activate your account', "Hello " . $register_data['first_name'] . ",\n\nYou need to activate your account, please use the link below:\n\nhttp://atlas95.eu/TeamProject/activate.php?email=" . $register_data['email'] . "&email_code=" . $register_data['email_code'] . "\n\n Best Regards Team Bogota");
 }
 
 function user_count() {

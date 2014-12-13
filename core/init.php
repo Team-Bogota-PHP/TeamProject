@@ -1,6 +1,6 @@
 <?php
 session_start();
-//error_reporting(0); // security measure
+error_reporting(0); // security measure
 require "database/connect.php";
 require "functions/general.php";
 require "functions/users.php";

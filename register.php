@@ -58,11 +58,9 @@ if(empty($_POST) === false) {
                 'email_code' => md5($_POST['username'] + microtime())
             );
             register_user($register_data);
-            header('Location: register.php?success');
+            header('Location: register.php?success=true');
             exit();
-        } else if (empty($errors) === false) {
-            echo(output_errors($errors));
-        }
+        } 
 
 
         ?>

@@ -16,6 +16,8 @@ include "overallHeader.php";
     </form>
 </div>
 <?php
+include "overallFooter.php";
+include_once('database.php');
 if (isset($_POST['submit'])) {
     $index = 0; //
     $targetDir = 'uploads/'; // Folder for uploaded files
@@ -48,7 +50,7 @@ if (isset($_POST['submit'])) {
             } else if ($uploadOK) {
                 if (move_uploaded_file($_FILES['fileToUpload']['tmp_name'][$i], $targetFile)) { //If file moved to uploads folder successfully
                     $sql = "INSERT INTO image (p_img , p_tags) VALUES ('" . $targetFile . "', '" . $tags . "')";
-                    if (mysql_query($sql) === TRUE) {
+                    if ($con->query($sql) === TRUE) {
                         echo $index . ').<span id="noError">Image uploaded successfully!</span><br /><br />';
                     } else {
                         echo $index . ').<span id="error">Error uploading file, please try again!</span><br /><br />';

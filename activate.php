@@ -30,7 +30,8 @@ if(isset($_GET['success']) === true && empty($_GET['success']) === true) {
 
 
     } else {
-        // some message ?
+        echo("<p>Thanks, we have activated your account.</p>");
+        echo("<p>And you are free to log in.</p>");
         header('Location: header.php');
         exit();
     }

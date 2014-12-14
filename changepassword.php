@@ -39,6 +39,8 @@ if(isset($_GET['success']) && empty($_GET['success'])) {
     if (empty($_POST) === false && empty($errors) === true) {
         change_password($session_user_id, $_POST['password']);
         header('Location: changepassword.php?success');
+        echo("<p>You have successfuly changed your password.</p>");
+        exit();
     } else if (empty($errors) === false) {
         echo(output_errors($errors));
     }

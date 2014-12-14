@@ -3,12 +3,17 @@
 function recover($mode, $email) {
     $mode = sanitize($mode);
     $email = sanitize($email);
-    $user_data = user_data(user_id_from_email($email), 'first_name', 'username');
+    $user_data = user_data(user_id_from_email($email), 'user_id', 'first_name', 'username');
     if($mode === 'username') {
         email($email, 'Your username', "Hello " . $user_data['first_name']  . ",\n\nYour username is: " . $user_data['username'] . "\n\nTeam Bogota");
+        echo("<p>Please check your email account for your username</p>");
+        exit();
     } else if($mode === 'password') {
         $generated_password = substr(md5(rand(999, 999999)), 0, 8);
-        die($generated_password);
+        change_password($user_data['user_id'], $generated_password);
+        email($email, 'Your new password', "Hello " . $user_data['first_name']  . ",\n\nYour new password is(please change it the first time you log in): " . $generated_password . "\n\nTeam Bogota");
+        echo("<p>Please check your email account for your new password</p>");
+        exit();
     }
 
 

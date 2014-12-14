@@ -59,6 +59,7 @@ if(empty($_POST) === false) {
             );
             register_user($register_data);
             header('Location: register.php?success=true');
+            echo("<p>You have been registered successfully! Please check your email to activate your account</p>");
             exit();
         } else if (empty($errors) === false) {
             echo(output_errors($errors));

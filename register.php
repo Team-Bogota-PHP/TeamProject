@@ -45,7 +45,7 @@ if(empty($_POST) === false) {
 
 <h1>Register</h1>
 <?php
-    if(isset($_GET['success']) === true && empty($_GET['success']) === false) {
+    if(isset($_GET['success']) == 'true') { //if(isset($_GET['success']) === true && empty($_GET['success']) === false) {
         echo('You have been registered successfully! Please check your email to activate your account');
     } else {
         if (empty($_POST) === false && empty($errors) === true) {
@@ -60,7 +60,9 @@ if(empty($_POST) === false) {
             register_user($register_data);
             header('Location: register.php?success=true');
             exit();
-        } 
+        } else if (empty($errors) === false) {
+            echo(output_errors($errors));
+        }
 
 
         ?>

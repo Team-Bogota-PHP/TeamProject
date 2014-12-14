@@ -6,11 +6,6 @@ include "overallHeader.php"
 
     <h1>Picture Gallery</h1>
     <p>Just a template.</p>
-    <ul>
-        <li>
-            <a href="upload.php">Upload Pictures</a>
-        </li>
-    </ul>
 
 
 

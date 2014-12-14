@@ -1,0 +1,53 @@
+@charset "utf-8";
+
+* {
+	font-family: Arial, sans-serif;
+	padding: 0;
+}
+
+#wrapper {
+	display: inline-block;
+	border: black 1px solid;
+	border-radius: 10px;
+	padding: 10px;
+}
+
+#filediv {
+	text-align: left;
+}
+
+#wrapper h2 {
+	color: white;
+	background: #424242;
+	text-align: center;
+	padding: 3px 0 3px 0;
+}
+
+.upload {
+	color: #424242;
+	background: #E9E9E9;
+	display: inline-block;
+	font-size: 15px;
+	margin: 0 12px 24px 0;
+	padding: 6px 12px;
+	text-align: center;
+	border-radius: 5px;
+	border-style: none;
+	cursor: pointer;
+}
+
+.tags {
+	font-size: 15px;
+	float: right;
+	margin-right: 120px;
+}
+
+.file {
+	height: 0px;
+	width: 0px;
+	overflow: hidden;
+}
+
+#uploadButton, .tags {
+	margin-top: 10px;
+}

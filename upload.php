@@ -10,9 +10,8 @@ include "overallHeader.php";
             <div id="filediv">
                 <input type="file" name="fileToUpload[]" id="fileToUpload"/>
 
-                <div id="uploadButton" class="upload">Browse...
-                    <input type="text" id="tags" name="tags[]" class="tags" placeholder="Image tags"/><br/><br/>
-                </div>
+                <div id="uploadButton" class="upload">Browse...</div>
+                <input type="text" id="tags" name="tags[]" class="tags" placeholder="Image tags"/><br/><br/>
             </div>
             <input type="button" id="addMore" class="upload" value="Add More Files"/>
             <input type="button" id="removeField" class="hidden" value="Remove Field"/>

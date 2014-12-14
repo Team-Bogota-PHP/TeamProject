@@ -8,14 +8,14 @@ include "overallHeader.php";
         <form action="" method="post" enctype="multipart/form-data">
             Allowed formats: JPEG, PNG, JPG, GIF. Image Size: Less than 2MB.
             <div id="filediv">
-                <input type="file" name="fileToUpload[]" id="fileToUpload1"/>
+                <input type="file" name="fileToUpload[]" id="fileToUpload1" class="file"/>
 
-                <div id="uploadButton" class="upload">Browse...</div>
+                <div id="uploadButton1" class="upload">Browse...</div>
                 <input type="text" id="tags" name="tags[]" class="tags" placeholder="Image tags"/><br/><br/>
             </div>
             <input type="button" id="addMore" class="upload" value="Add More Files"/>
-            <input type="button" id="removeField" class="hidden" value="Remove Field"/>
             <input type="submit" value="Upload File" name="submit" id="upload" class="upload"/>
+            <input type="button" id="removeField" class="hidden" value="Remove Field"/>
         </form>
     </div>
 <?php

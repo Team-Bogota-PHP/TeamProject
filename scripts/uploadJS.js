@@ -13,11 +13,14 @@ $(document).ready(function () {
 
     $('#addMore').click(function () {
         fieldsCount++;
-        $(this).before($('<div/>', {id: 'filediv' + fieldsCount}).fadeIn('slow').
-            append($('<div id="uploadButton" class="upload">Browse...</div>'), $('<input/>', {
+        $(this).before($('<div/>', {id: 'filediv'}).fadeIn('slow').
+            append($('<div id="uploadButton" class="upload">Browse...</div>').click(function() {
+                $(this).next().trigger('click');
+            }), $('<input/>', {
                 name: 'fileToUpload[]',
                 type: 'file',
-                id: 'fileToUpload'+fieldsCount
+                class: 'file',
+                id: 'fileToUpload' + fieldsCount
             }),
             $('<input/>', {
                 type: 'text',
@@ -33,8 +36,8 @@ $(document).ready(function () {
 
     });
 
-    $('body').on('click', '#uploadButton', function () {
-        $('#fileToUpload'+fieldsCount).trigger("click");
+    $('#uploadButton1').click(function() {
+        $('#fileToUpload1').trigger('click');
     });
 
 });

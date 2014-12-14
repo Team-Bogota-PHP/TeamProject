@@ -17,7 +17,7 @@ $(document).ready(function () {
             append($('<div id="uploadButton" class="upload">Browse...</div>'), $('<input/>', {
                 name: 'fileToUpload[]',
                 type: 'file',
-                id: 'fileToUpload'
+                id: 'fileToUpload'+fieldsCount
             }),
             $('<input/>', {
                 type: 'text',
@@ -34,7 +34,7 @@ $(document).ready(function () {
     });
 
     $('body').on('click', '#uploadButton', function () {
-        $('#fileToUpload').trigger("click");
+        $('#fileToUpload'+fieldsCount).trigger("click");
     });
 
 });

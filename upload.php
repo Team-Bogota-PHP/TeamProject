@@ -8,7 +8,7 @@ include "overallHeader.php";
         <form action="" method="post" enctype="multipart/form-data">
             Allowed formats: JPEG, PNG, JPG, GIF. Image Size: Less than 2MB.
             <div id="filediv">
-                <input type="file" name="fileToUpload[]" id="fileToUpload"/>
+                <input type="file" name="fileToUpload[]" id="fileToUpload1"/>
 
                 <div id="uploadButton" class="upload">Browse...</div>
                 <input type="text" id="tags" name="tags[]" class="tags" placeholder="Image tags"/><br/><br/>

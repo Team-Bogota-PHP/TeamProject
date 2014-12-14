@@ -6,12 +6,13 @@ include "overallHeader.php";
     <h2>Multiple Image Upload Form</h2>
 
     <form action="" method="post" enctype="multipart/form-data">
-        Allowed formats: JPEG, PNG, JPG, GIF. Image Size: Less that 2MB.
+        Allowed formats: JPEG, PNG, JPG, GIF. Image Size: Less than 2MB.
         <div id="filediv">
             <input type="file" name="fileToUpload[]" id="fileToUpload"/>
             <input type="text" id="tags" name="tags[]" class="tags" placeholder="Image tags"/><br/><br/>
         </div>
         <input type="button" id="addMore" class="upload" value="Add More Files"/>
+        <input type="button" id="removeField" class="hidden" value="Remove Field"/>
         <input type="submit" value="Upload File" name="submit" id="upload" class="upload"/>
     </form>
 </div>

@@ -120,3 +120,7 @@ footer {
     clear:both;
 }/* CSS Document */
 
+.hidden {
+    display: none;
+}
+

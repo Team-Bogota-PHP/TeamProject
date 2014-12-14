@@ -28,4 +28,7 @@ $(document).ready(function () {
         $('#upload').val('Upload Files');
 
     });
+    $('#uploadButton').click(function() {
+    	$('#fileToUpload').trigger("click");
+    });
 });

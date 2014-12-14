@@ -3,8 +3,8 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 13, 2014 at 01:22 AM
--- Server version: 5.6.21
+-- Generation Time: 
+-- Версия на сървъра: 5.6.21
 -- PHP Version: 5.6.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
@@ -23,7 +23,29 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users`
+-- Структура на таблица `image`
+--
+
+CREATE TABLE IF NOT EXISTS `image` (
+`p_id` int(25) NOT NULL,
+  `p_img` varchar(255) NOT NULL,
+  `p_tags` varchar(255) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+
+--
+-- Схема на данните от таблица `image`
+--
+
+INSERT INTO `image` (`p_id`, `p_img`, `p_tags`) VALUES
+(3, 'uploads/8d876a570aa7745561e79445faeaa3a3.jpg', ''),
+(4, 'uploads/7b2a0266cb3e6a8254b8b1c967277971.jpg', 'gdfgdfgdg'),
+(5, 'uploads/27555798bf54b64efda50802bbf54bde.jpg', 'gdfgdfgdg'),
+(6, 'uploads/7f355e66a1c69f2487124b99235e3160.jpg', '');
+
+-- --------------------------------------------------------
+
+--
+-- Структура на таблица `users`
 --
 
 CREATE TABLE IF NOT EXISTS `users` (
@@ -38,7 +60,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `users`
+-- Схема на данните от таблица `users`
 --
 
 INSERT INTO `users` (`user_id`, `username`, `password`, `first_name`, `last_name`, `email`, `email_code`, `active`) VALUES
@@ -53,6 +75,12 @@ INSERT INTO `users` (`user_id`, `username`, `password`, `first_name`, `last_name
 --
 
 --
+-- Indexes for table `image`
+--
+ALTER TABLE `image`
+ ADD PRIMARY KEY (`p_id`);
+
+--
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -62,6 +90,11 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for dumped tables
 --
 
+--
+-- AUTO_INCREMENT for table `image`
+--
+ALTER TABLE `image`
+MODIFY `p_id` int(25) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `users`
 --

@@ -5,6 +5,16 @@ require "database/connect.php";
 require "functions/general.php";
 require "functions/users.php";
 
+
+
+if(isset($_SESSION['views'])) {
+    $_SESSION['views']++;
+} else {
+    $_SESSION['views'] = 0;
+}
+
+
+
 $current_file = explode('/', $_SERVER['SCRIPT_NAME']); // comment this out if problems
 $current_file = end($current_file);
 

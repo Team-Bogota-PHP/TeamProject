@@ -7,13 +7,8 @@
 
 #wrapper {
 	display: inline-block;
-	border: black 1px solid;
-	border-radius: 10px;
+	width: 50%;
 	padding: 10px;
-}
-
-#filediv {
-	text-align: left;
 }
 
 #wrapper h2 {
@@ -23,23 +18,10 @@
 	padding: 3px 0 3px 0;
 }
 
-.upload {
-	color: #424242;
-	background: #E9E9E9;
-	display: inline-block;
-	font-size: 15px;
-	margin: 0 12px 24px 0;
-	padding: 6px 12px;
-	text-align: center;
-	border-radius: 5px;
-	border-style: none;
-	cursor: pointer;
-}
-
-.tags {
-	font-size: 15px;
-	float: right;
-	margin-right: 120px;
+#filediv {
+	text-align: left;
+	display: block;
+	float: left;
 }
 
 .file {
@@ -48,6 +30,26 @@
 	overflow: hidden;
 }
 
-#uploadButton, .tags {
-	margin-top: 10px;
+.tags {
+	font-size: 15px;
+	display: inline-block;
+	float: left;
+}
+
+.upload {
+	color: #424242;
+	background: #E9E9E9;
+	display: inline-block;
+	font-size: 15px;
+	margin: 0 12px 0 0;
+	padding: 6px 12px;
+	text-align: center;
+	border-radius: 5px;
+	border-style: none;
+	cursor: pointer;
+	float: left;
+}
+
+.upload, .tags {
+	margin: 5px 10px;
 }

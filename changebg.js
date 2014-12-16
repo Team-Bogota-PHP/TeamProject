@@ -13,3 +13,7 @@ function green() {
 function white() {
     $('body').css('background-image', 'url(images/white.jpg)');
 }
+
+function goBack() {
+    window.history.back()
+}

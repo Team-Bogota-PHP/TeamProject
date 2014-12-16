@@ -1,6 +1,5 @@
 <!doctype html>
 <html>
-
 <?php
 include "head.php";
 include "changeColor.php";

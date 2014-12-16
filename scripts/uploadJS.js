@@ -3,7 +3,7 @@ var fieldsCount = 1;
 
 $(document).ready(function () {
     $('#removeField').click(function () {
-        $('#filediv' + fieldsCount).remove();
+        $('#filediv:last-of-type').remove();
         fieldsCount--;
         if (fieldsCount == 1) {
             $('#removeField').css('display', 'none');

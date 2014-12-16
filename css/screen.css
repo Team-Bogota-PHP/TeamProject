@@ -127,6 +127,14 @@ aside {
 #login li.link {
     margin-top:5px;
 }
+
+.contact * {
+    display: block !important;
+    width: 300px !important;
+    text-align: center;
+
+}
+
 /* Footer */
 footer {
     border-top:1px dashed #ddd;

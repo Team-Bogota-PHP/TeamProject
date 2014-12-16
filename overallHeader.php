@@ -1,6 +1,10 @@
 <!doctype html>
 <html>
-<?php include "head.php"; ?>
+
+<?php
+include "head.php";
+include "changeColor.php";
+?>
 <body>
 <?php include "header.php"; ?>
 <div id="container">

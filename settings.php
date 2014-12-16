@@ -1,4 +1,6 @@
 <?php
+
+
 include "core/init.php";
 protect_page();
 include "overallHeader.php";
@@ -68,6 +70,17 @@ if(isset($_GET['success']) === true && empty($_GET['success']) === true ) {
             </li>
         </ul>
     </form>
+
+
+
+
+        <h2>Choose Background Colour</h2>
+        <a href="?bgimage=red" onclick="red()"><img src="images/red.jpg" width="50px" height="50px"></a>
+        <a href="?bgimage=blue" onclick="blue()"><img src="images/blue.jpg" width="50px" height="50px"></a>
+        <a href="?bgimage=green" onclick="green()"><img src="images/green.jpg" width="50px" height="50px"></a>
+        <a href="?bgimage=white" onclick="white()"><img src="images/white.jpg" width="50px" height="50px"></a>
+
+
 
 
 <?php

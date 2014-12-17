@@ -50,7 +50,9 @@ if (isset($_POST['submit'])) {
                 echo $index . ').<span id="error">***Invalid file Type***</span><br /><br />';
             } else if ($uploadOK) {
                 if (move_uploaded_file($_FILES['fileToUpload']['tmp_name'][$i], $targetFile)) { //If file moved to uploads folder successfully
-                    $sql = "INSERT INTO image (p_img , p_tags) VALUES ('" . $targetFile . "', '" . $tags . "')";
+                    $user_id = $_SESSION['user_id'];
+                    $user = mysql_fetch_array(mysql_query("SELECT username FROM users WHERE user_id='$user_id'"));
+                    $sql = "INSERT INTO image (p_img , p_tags,user_uploaded) VALUES ('$targetFile', '$tags', '$user[0]')";
                     if (mysql_query($sql) === TRUE) {
                         echo $index . ').<span id="noError">Image uploaded successfully!</span><br /><br />';
                     } else {

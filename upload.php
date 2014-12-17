@@ -28,7 +28,7 @@ if (isset($_POST['submit'])) {
             $validExtensions = array('jpeg', 'jpg', 'png', 'gif');
 
             $targetFile = $targetDir . basename($_FILES['fileToUpload']['name'][$i]);
-            $fileExtension = pathinfo($targetFile, PATHINFO_EXTENSION);
+            $fileExtension = strtolower(pathinfo($targetFile, PATHINFO_EXTENSION));
             $fileSize = $_FILES['fileToUpload']['size'][$i];
             $tags = htmlentities($_POST['tags'][$i]);
 
@@ -66,7 +66,6 @@ if (isset($_POST['submit'])) {
     }
 }
 ?>
-    <script src="scripts/uploadJS.js"></script>
 
 <?php
 include 'overallFooter.php';

@@ -41,3 +41,7 @@ $(document).ready(function () {
     });
 
 });
+
+function profilePic() {
+    $('#profileUpload').trigger('click');
+}

@@ -36,7 +36,7 @@
 	float: left;
 }
 
-.upload {
+.upload, .upload1 {
 	color: #424242;
 	background: #E9E9E9;
 	display: inline-block;

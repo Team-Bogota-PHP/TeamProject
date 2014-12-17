@@ -1,5 +1,5 @@
 <header>
-    <h1 class="logo">Logo</h1>
+    <div><img src="images/logo.png" alt="Logo" class="logo"/></div>
          <?php include "menu.php" ?>
     <div class="clear"></div>
 </header>

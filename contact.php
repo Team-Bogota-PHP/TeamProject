@@ -24,13 +24,13 @@ include "overallHeader.php"
     <h1>Contacts</h1>
 
     <form action="" method="post" class="contact">
-        <label for="name">From:</label>
-        <input type="text" id="from" name="from" required="required">
-        <label for="name">Subject:</label>
+        <div id="label">Name*</div>
+        <input type="text" id="name" name="from" required="required">
+        <div id="label">Subject</div>
         <input type="text" id="subject" name="subject" required="required">
-        <label for="text">Message:</label>
+        <div id="label">Message*</div>
         <textarea name="text" id="text" cols="50" rows="10"></textarea>
-        <input type="submit" value="SEND">
+        <input type="submit" id="message" value="SEND">
     </form>
 
 

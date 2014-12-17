@@ -25,18 +25,23 @@ if (isset($_GET['username']) === true && empty($_GET['username']) === false) {
             }
             ?>
         </div>
-        <div id="userGallery">User's Gallery
-        <?php
-        $result = mysql_query("SELECT `p_img` FROM `image` WHERE user_uploaded='$username'");
-        while ($table = mysql_fetch_array($result)) :
-            $tags = mysql_fetch_array(mysql_query("SELECT p_tags FROM image WHERE p_img='$table[0]'"));
+        <div id="userGallery" class="clear"><h1>User's Gallery</h1>
+            <?php
+            $result = mysql_query("SELECT `p_img` FROM `image` WHERE user_uploaded='$username'");
+            $count = 1;
+            while ($table = mysql_fetch_array($result)) :
+                $tags = mysql_fetch_array(mysql_query("SELECT p_tags FROM image WHERE p_img='$table[0]'"));
+                ?>
+                <a href="<?php echo $table[0] ?>" data-lightbox="<?php echo $username?>"
+                   data-title="Tags: <?php echo $tags[0]?>"><img
+                        id="gallery" src="<?php echo $table[0] ?>" alt="image"/></a>
+                <?php
+                if ($count % 4 == 0) {
+                    echo "<br>";
+                }
+                $count++;
+            endwhile;
             ?>
-            <a href="<?php echo $table[0] ?>" data-lightbox="<?php echo $username?>"
-               data-title="Tags: <?php echo $tags[0]?>"><img
-                    id="gallery" src="<?php echo $table[0] ?>" alt="image"/></a>
-        <?php
-        endwhile;
-        ?>
         </div>
     <?php
     } else {

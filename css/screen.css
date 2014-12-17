@@ -61,6 +61,7 @@ header {
     margin:0 auto 10px auto;
 }
 #container {
+    position: relative;
     min-height:500px;
     border-radius:5px 5px 0 0;
 }
@@ -102,8 +103,9 @@ nav ul li a.last {
 /* Aside */
 aside {
     width:260px;
-    height: 100%;
-    float: right;
+    height: 95%;
+    position: absolute;
+    left: 670px;
     border-left:1px dashed #aaa;
     padding-left:15px;
 }
@@ -154,5 +156,9 @@ footer {
     width: 150px;
     height: 150px;
     margin: 0.2%;
+}
+
+#userGallery {
+    padding-top: 20px;
 }
 

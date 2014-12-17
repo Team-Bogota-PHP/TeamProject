@@ -29,18 +29,9 @@ SET time_zone = "+00:00";
 CREATE TABLE IF NOT EXISTS `image` (
 `p_id` int(25) NOT NULL,
   `p_img` varchar(255) NOT NULL,
-  `p_tags` varchar(255) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
-
---
--- Схема на данните от таблица `image`
---
-
-INSERT INTO `image` (`p_id`, `p_img`, `p_tags`) VALUES
-(3, 'uploads/8d876a570aa7745561e79445faeaa3a3.jpg', ''),
-(4, 'uploads/7b2a0266cb3e6a8254b8b1c967277971.jpg', 'gdfgdfgdg'),
-(5, 'uploads/27555798bf54b64efda50802bbf54bde.jpg', 'gdfgdfgdg'),
-(6, 'uploads/7f355e66a1c69f2487124b99235e3160.jpg', '');
+  `p_tags` varchar(255) NOT NULL,
+  `user_uploaded` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -56,19 +47,20 @@ CREATE TABLE IF NOT EXISTS `users` (
   `last_name` varchar(32) NOT NULL,
   `email` varchar(1024) NOT NULL,
   `email_code` varchar(32) NOT NULL,
-  `active` int(11) NOT NULL DEFAULT '0'
+  `active` int(11) NOT NULL DEFAULT '0',
+  `profile` varchar(255) NOT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
 
 --
 -- Схема на данните от таблица `users`
 --
 
-INSERT INTO `users` (`user_id`, `username`, `password`, `first_name`, `last_name`, `email`, `email_code`, `active`) VALUES
-(1, 'admin', '6cb75f652a9b52798eb6cf2201057c73', 'Georgi', 'Iliev', 'georgi_iliev@yahoo.com', '', 1),
-(4, 'locoenough', '2419c459e9ad2d94f4a5c887b3ca18cb', 'dae', 'kak', 'penchev@epedal.com', '', 1),
-(5, 'glavata', '2419c459e9ad2d94f4a5c887b3ca18cb', 'glavata', 'glavata', 'glavata@mail.bg', '', 0),
-(6, 'glavata2', '2419c459e9ad2d94f4a5c887b3ca18cb', 'dae', 'kak', 'blabla@yahoo.com', '', 0),
-(7, 'glavata3', 'bff82e5000d4c7a1d6e3ea0e0880ace3', 'dae', 'dae', 'onqludwaaameeen@abv.bg', 'bcacae7fedbe0e7bc5ae283380c2f36d', 0);
+INSERT INTO `users` (`user_id`, `username`, `password`, `first_name`, `last_name`, `email`, `email_code`, `active`, `profile`) VALUES
+(1, 'admin', '6cb75f652a9b52798eb6cf2201057c73', 'Georgi', 'Iliev', 'georgi_iliev@yahoo.com', '', 1, 'uploads/profile/afe68c2bba.jpg'),
+(4, 'locoenough', '2419c459e9ad2d94f4a5c887b3ca18cb', 'dae', 'kak', 'penchev@epedal.com', '', 1, ''),
+(5, 'glavata', '2419c459e9ad2d94f4a5c887b3ca18cb', 'glavata', 'glavata', 'glavata@mail.bg', '', 0, ''),
+(6, 'glavata2', '2419c459e9ad2d94f4a5c887b3ca18cb', 'dae', 'kak', 'blabla@yahoo.com', '', 0, ''),
+(7, 'glavata3', 'bff82e5000d4c7a1d6e3ea0e0880ace3', 'dae', 'dae', 'onqludwaaameeen@abv.bg', 'bcacae7fedbe0e7bc5ae283380c2f36d', 0, '');
 
 --
 -- Indexes for dumped tables
@@ -94,7 +86,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `image`
 --
 ALTER TABLE `image`
-MODIFY `p_id` int(25) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
+MODIFY `p_id` int(25) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `users`
 --

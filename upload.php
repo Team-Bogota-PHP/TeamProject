@@ -11,11 +11,12 @@ include "overallHeader.php";
                 <input type="file" name="fileToUpload[]" id="fileToUpload1" class="file"/>
 
                 <div id="uploadButton1" class="upload">Browse...</div>
-                <input type="text" id="tags" name="tags[]" class="tags uplDisplaced" placeholder="Image tags"/><br/><br/>
+                <input type="text" id="tags" name="tags[]" class="tags uplDisplaced"
+                       placeholder="Image tags"/><br/><br/>
             </div>
             <input type="button" id="addMore" class="upload" value="Add More Files"/>
-            <input type="submit" value="Upload File" name="submit" id="upload" class="upload uplDisplaced"/>
-            <input type="button" id="removeField" class="hidden" value="Remove Field"/>
+            <input type="submit" value="Upload File" name="submit" id="upload" class="upload"/>
+            <input type="button" id="removeField" class="hidden upload" value="Remove Field"/>
         </form>
     </div>
 <?php
@@ -41,25 +42,25 @@ if (isset($_POST['submit'])) {
 
             if (!$checkIfImage) {
                 $uploadOK = false;
-                echo $index . ').<span id="error">***Invalid file Type***</span><br /><br />';
+                echo '<div id="error">' . $index . ').***Invalid file Type***</div><br />';
             } else if ($fileSize > 2000000) {
                 $uploadOK = false;
-                echo $index . ').<span id="error">***File too big***</span><br /><br />';
+                echo '<div id="error">' . $index . ').***File too big***</div><br />';
             } else if (!in_array($fileExtension, $validExtensions)) {
                 $uploadOK = false;
-                echo $index . ').<span id="error">***Invalid file Type***</span><br /><br />';
+                echo '<div id="error">' . $index . ').***Invalid file Type***</div><br />';
             } else if ($uploadOK) {
                 if (move_uploaded_file($_FILES['fileToUpload']['tmp_name'][$i], $targetFile)) { //If file moved to uploads folder successfully
                     $user_id = $_SESSION['user_id'];
                     $user = mysql_fetch_array(mysql_query("SELECT username FROM users WHERE user_id='$user_id'"));
                     $sql = "INSERT INTO image (p_img , p_tags,user_uploaded) VALUES ('$targetFile', '$tags', '$user[0]')";
                     if (mysql_query($sql) === TRUE) {
-                        echo $index . ').<span id="noError">Image uploaded successfully!</span><br /><br />';
+                        echo "<div id=\"noError\">$index).Image uploaded successfully!</div><br /><br />";
                     } else {
-                        echo $index . ').<span id="error">Error uploading file, please try again!</span><br /><br />';
+                        echo '<div id="error">' . $index . ').Error uploading file, please try again!</div><br />';
                     }
                 } else {
-                    echo $index . ').<span id="error">Error uploading file, please try again!</span><br /><br />';
+                    echo '<div id="error">' . $index . ').Error uploading file, please try again!</div><br />';
                 }
             }
         }

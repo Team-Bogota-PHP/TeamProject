@@ -32,16 +32,13 @@
 }
 
 .tags {
+    float: left;
     font-size: 20px;
     display: inline-block;
-    float: left;
 }
 
 .upload {
-    margin: 0;
-}
-
-.upload, .upload1 {
+    margin-right: 10px !important;
     color: #424242;
     background: #E9E9E9;
     display: inline-block;
@@ -49,14 +46,13 @@
     padding: 6px 8px;
     text-align: center;
     border-radius: 5px;
-    border-style: none;
     cursor: pointer;
     float: left;
     border: black 1px solid;
     width: 10em;
 }
 
-.upload, .tags, .fileName {
+.tags, .fileName {
     margin: 5px 0;
 }
 
@@ -66,7 +62,6 @@
     padding: 6px 0;
     text-align: left;
     width: 10em;
-    border-style: none;
     cursor: pointer;
     float: left;
 }
@@ -77,4 +72,22 @@
 
 .formHeader {
     width: 100%;
+}
+
+.hidden {
+    display: none;
+}
+
+.profileUpload {
+    border: black 1px solid;
+    color: #424242;
+    background: #E9E9E9;
+    display: inline-block;
+    font-size: 15px;
+    margin: 0 12px 0 0;
+    padding: 6px 12px;
+    text-align: center;
+    border-radius: 5px;
+    cursor: pointer;
+    float: left;
 }

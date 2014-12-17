@@ -38,8 +38,8 @@
             <form action="" method="post" enctype="multipart/form-data">
                 <input type="file" name="profile" id="profileUpload" class="file"/>
 
-                <div id="profilePic" class="upload" onclick="profilePic()">Browse...</div>
-                <input type="submit" value="Upload File" name="submit" class="upload"/>
+                <div id="profilePic" class="profileUpload" onclick="profilePic()">Browse...</div>
+                <input type="submit" value="Upload File" name="submit" class="profileUpload"/>
             </form>
         </div>
         <ul class="clear">

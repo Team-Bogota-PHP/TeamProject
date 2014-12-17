@@ -1,55 +1,80 @@
 @charset "utf-8";
 
 * {
-	font-family: Arial, sans-serif;
-	padding: 0;
+    font-family: Arial, sans-serif;
+    padding: 0;
 }
 
 #wrapper {
-	display: inline-block;
-	width: 50%;
-	padding: 10px;
+    display: inline-block;
+    width: 60%;
+    padding: 10px;
 }
 
 #wrapper h2 {
-	color: white;
-	background: #424242;
-	text-align: center;
-	padding: 3px 0 3px 0;
+    color: white;
+    background: #424242;
+    text-align: center;
+    padding: 3px 0 3px 0;
 }
 
 #filediv {
-	text-align: left;
-	display: block;
-	float: left;
+    text-align: left;
+    display: block;
+    float: left;
+    width: 100%;
 }
 
 .file {
-	height: 0px;
-	width: 0px;
-	overflow: hidden;
+    height: 0px;
+    width: 0px;
+    overflow: hidden;
 }
 
 .tags {
-	font-size: 15px;
-	display: inline-block;
-	float: left;
+    font-size: 20px;
+    display: inline-block;
+    float: left;
+}
+
+.upload {
+    margin: 0;
 }
 
 .upload, .upload1 {
-	color: #424242;
-	background: #E9E9E9;
-	display: inline-block;
-	font-size: 15px;
-	margin: 0 12px 0 0;
-	padding: 6px 12px;
-	text-align: center;
-	border-radius: 5px;
-	border-style: none;
-	cursor: pointer;
-	float: left;
+    color: #424242;
+    background: #E9E9E9;
+    display: inline-block;
+    font-size: 15px;
+    padding: 6px 8px;
+    text-align: center;
+    border-radius: 5px;
+    border-style: none;
+    cursor: pointer;
+    float: left;
+    border: black 1px solid;
+    width: 10em;
 }
 
-.upload, .tags {
-	margin: 5px 10px;
+.upload, .tags, .fileName {
+    margin: 5px 0;
+}
+
+.fileName {
+    border: red 2px solid;
+    font-size: 15px;
+    padding: 6px 0;
+    text-align: left;
+    width: 10em;
+    border-style: none;
+    cursor: pointer;
+    float: left;
+}
+
+.uplDisplaced {
+    margin-left: 15px;
+}
+
+.formHeader {
+    width: 100%;
 }

@@ -11,10 +11,10 @@ include "overallHeader.php";
                 <input type="file" name="fileToUpload[]" id="fileToUpload1" class="file"/>
 
                 <div id="uploadButton1" class="upload">Browse...</div>
-                <input type="text" id="tags" name="tags[]" class="tags" placeholder="Image tags"/><br/><br/>
+                <input type="text" id="tags" name="tags[]" class="tags uplDisplaced" placeholder="Image tags"/><br/><br/>
             </div>
             <input type="button" id="addMore" class="upload" value="Add More Files"/>
-            <input type="submit" value="Upload File" name="submit" id="upload" class="upload"/>
+            <input type="submit" value="Upload File" name="submit" id="upload" class="upload uplDisplaced"/>
             <input type="button" id="removeField" class="hidden" value="Remove Field"/>
         </form>
     </div>

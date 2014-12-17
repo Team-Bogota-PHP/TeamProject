@@ -15,9 +15,8 @@ while ($table = mysql_fetch_array($result)) :
         while ($img = mysql_fetch_array($personalGallery)) :
             $tags = mysql_fetch_array(mysql_query("SELECT p_tags FROM image WHERE p_img='$img[0]'"));
             ?>
-            <a href="<?php echo $img[0] ?>" data-lightbox="<?php echo $table[0]?>" data-title="Tags: <?php echo $tags[0]?>">
-                <img id="gallery" src="<?php echo $img[0] ?>" alt="image"/>
-            </a>
+            <a href="<?php echo $img[0] ?>" data-lightbox="<?php echo $table[0]?>" data-title="Tags: <?php echo $tags[0]?>"><img
+                    id="gallery" src="<?php echo $img[0] ?>" alt="image"/></a>
         <?php
         endwhile;
     endif;

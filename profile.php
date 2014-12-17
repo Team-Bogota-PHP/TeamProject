@@ -2,9 +2,9 @@
 include "core/init.php";
 include "overallHeader.php";
 
-if(isset($_GET['username']) === true && empty($_GET['username']) === false) {
+if (isset($_GET['username']) === true && empty($_GET['username']) === false) {
     $username = $_GET['username'];
-    if(user_exists($username) === true) {
+    if (user_exists($username) === true) {
         $user_id = user_id_from_username($username);
         $profile_data = user_data($user_id, 'first_name', 'last_name', 'email', 'profile');
         ?>
@@ -16,16 +16,28 @@ if(isset($_GET['username']) === true && empty($_GET['username']) === false) {
         <p>Email: <?php echo $profile_data['email'] ?></p>
         <div id="profilePicture">
 
+            <?php
+            if (empty($user_data['profile']) === false) { //    if(empty($user_data['profile']) !== false) {
+                $picture = mysql_fetch_assoc(mysql_query("SELECT `profile` FROM `users` WHERE `username` = '$username'"));
+                $picture = $picture['profile'];
+                echo '<h1>', $profile_data['first_name'] . '\'s picture' . '<h1>';
+                echo '<img src="', $picture, '" alt="', $profile_data['profile'], '\'s Profile Image">';
+            }
+            ?>
+        </div>
+        <div id="userGallery">User's Gallery
         <?php
-        if(empty($user_data['profile']) === false) { //    if(empty($user_data['profile']) !== false) {
-            $picture = mysql_fetch_assoc(mysql_query("SELECT `profile` FROM `users` WHERE `username` = '$username'"));
-            $picture = $picture['profile'];
-            echo '<h1>', $profile_data['first_name'] . '\'s picture' . '<h1>';
-            echo '<img src="', $picture, '" alt="',  $profile_data['profile'] ,'\'s Profile Image">';
-        }
+        $result = mysql_query("SELECT `p_img` FROM `image` WHERE user_uploaded='$username'");
+        while ($table = mysql_fetch_array($result)) :
+            $tags = mysql_fetch_array(mysql_query("SELECT p_tags FROM image WHERE p_img='$table[0]'"));
+            ?>
+            <a href="<?php echo $table[0] ?>" data-lightbox="<?php echo $username?>"
+               data-title="Tags: <?php echo $tags[0]?>"><img
+                    id="gallery" src="<?php echo $table[0] ?>" alt="image"/></a>
+        <?php
+        endwhile;
         ?>
         </div>
-
     <?php
     } else {
         echo('No such user is found.');

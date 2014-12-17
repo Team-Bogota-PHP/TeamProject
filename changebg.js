@@ -10,8 +10,16 @@ function green() {
     $('body').css('background-image', 'url(images/green.jpg)');
 }
 
-function white() {
-    $('body').css('background-image', 'url(images/white.jpg)');
+function purple() {
+    $('body').css('background-image', 'url(images/purple.png)');
+}
+
+function tiles() {
+    $('body').css('background-image', 'url(images/tiles.jpg)');
+}
+
+function wood() {
+    $('body').css('background-image', 'url(images/wood.jpg)');
 }
 
 function goBack() {

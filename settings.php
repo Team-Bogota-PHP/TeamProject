@@ -5,7 +5,7 @@ include "core/init.php";
 protect_page();
 include "overallHeader.php";
 
-if(empty($_POST) === false) {
+if (empty($_POST) === false) {
     $required_fields = array('first_name', 'email');
     foreach ($_POST as $key => $value) {
         if (empty($value) && in_array($key, $required_fields) === true) {
@@ -14,14 +14,14 @@ if(empty($_POST) === false) {
         }
     }
 
-    if(empty($errors) === true) {
+    if (empty($errors) === true) {
 
 
-        if(filter_var($_POST['email'], FILTER_VALIDATE_EMAIL) === false) {
-            if(!preg_match_all('/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/', $_POST['email'])) {
+        if (filter_var($_POST['email'], FILTER_VALIDATE_EMAIL) === false) {
+            if (!preg_match_all('/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/', $_POST['email'])) {
                 $errors[] = 'The e-mail you provided is not valid.';
             }
-        } else if(email_exists($_POST['email']) === true && $user_data['email'] !== $_POST['email']) { // check if exists
+        } else if (email_exists($_POST['email']) === true && $user_data['email'] !== $_POST['email']) { // check if exists
             $errors[] = 'Sorry, the email \'' . htmlentities($_POST['email']) . '\' is already in use.';
 
         }
@@ -32,7 +32,7 @@ if(empty($_POST) === false) {
     <h1>Settings</h1>
 
 <?php
-if(isset($_GET['success']) === true && empty($_GET['success']) === true ) {
+if (isset($_GET['success']) === true && empty($_GET['success']) === true) {
     echo('Your details have been updated');
 } else {
     if (empty($_POST) === false && empty($errors) === true) {
@@ -74,11 +74,13 @@ if(isset($_GET['success']) === true && empty($_GET['success']) === true ) {
 
 
 
-        <h2>Choose Background Colour</h2>
-        <a href="?bgimage=red" onclick="red()"><img src="images/red.jpg" width="50px" height="50px"></a>
-        <a href="?bgimage=blue" onclick="blue()"><img src="images/blue.jpg" width="50px" height="50px"></a>
-        <a href="?bgimage=green" onclick="green()"><img src="images/green.jpg" width="50px" height="50px"></a>
-        <a href="?bgimage=white" onclick="white()"><img src="images/white.jpg" width="50px" height="50px"></a>
+    <h2>Choose Background Colour</h2>
+    <a href="?bgimage=red" onclick="red()"><img src="images/red.jpg" width="50px" height="50px"></a>
+    <a href="?bgimage=blue" onclick="blue()"><img src="images/blue.jpg" width="50px" height="50px"></a>
+    <a href="?bgimage=green" onclick="green()"><img src="images/green.jpg" width="50px" height="50px"></a>
+    <a href="?bgimage=purple" onclick="purple()"><img src="images/purple.png" width="50px" height="50px"></a>
+    <a href="?bgimage=tiles" onclick="tiles()"><img src="images/tiles.jpg" width="50px" height="50px"></a>
+    <a href="?bgimage=wood" onclick="wood()"><img src="images/wood.jpg" width="50px" height="50px"></a>
 
 
 

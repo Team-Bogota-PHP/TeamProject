@@ -11,4 +11,4 @@
     <script src="js/lightbox.min.js"></script>
 </head>
 <body>
-<button onclick="goBack()">Go Back</button>
+<img onclick="goBack()" class="back" src="img/back.png" alt="Go Back"/>

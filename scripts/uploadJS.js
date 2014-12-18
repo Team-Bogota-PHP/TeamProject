@@ -54,6 +54,14 @@ $(document).ready(function () {
         $('#fileToUpload1').trigger('click');
     });
 
+    $("#profileUpload").change(function () {
+        var out = $(this).val().replace(/^.*[\\\/]/, '');
+        if (out.length > 10) {
+            out = out.substring(0, 10) + '...';
+        }
+        $("#profilePic").html(out);
+    });
+
 });
 
 function profilePic() {

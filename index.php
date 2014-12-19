@@ -4,7 +4,7 @@
 ?>
 
     <h1>Home</h1>
-    <p>Just a template.</p>
+    <h1>Welcome to Team BOGOTA's Picture Gallery. Enjoy</h1>
 
 <?php
     include "overallFooter.php";

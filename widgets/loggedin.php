@@ -1,7 +1,7 @@
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script src="scripts/uploadJS.js"></script>
 <div class="widget">
-    <h2>Hello, <?php echo $user_data['first_name'] ?> !</h2>
+    <h2>Hello, <?php echo $user_data['first_name'] ?>!</h2>
 
     <div class="inner">
         <div class="profile">

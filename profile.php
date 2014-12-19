@@ -25,7 +25,7 @@ if (isset($_GET['username']) === true && empty($_GET['username']) === false) {
             }
             ?>
         </div>
-        <div id="userGallery" class="clear"><h1>User's Gallery</h1>
+        <div id="userGallery" class="clear"><h1><?php echo $profile_data['first_name'] ?>'s Gallery</h1>
             <?php
             $result = mysql_query("SELECT `p_img` FROM `image` WHERE user_uploaded='$username'");
             $count = 1;

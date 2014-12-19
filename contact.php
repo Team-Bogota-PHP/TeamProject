@@ -5,9 +5,9 @@ include "overallHeader.php"
 
 <?php
     if(isset($_POST['from']) && isset($_POST['subject']) && isset($_POST['text']) ) {
-        $from = $_POST['from'];
-        $subject = $_POST['subject'];
-        $text = $_POST['text'];
+        $from = sanitize($_POST['from']);
+        $subject = sanitize($_POST['subject']);
+        $text = sanitize($_POST['text']);
         if(mail('georgi_iliev@yahoo.com', $subject, $text, $from)) {
             header("Location: contact.php");
             echo("<p>Your message was successfuly sent</p>");

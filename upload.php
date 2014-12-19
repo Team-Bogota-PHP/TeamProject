@@ -1,5 +1,6 @@
 <?php
 include "core/init.php";
+protect_page();
 include "overallHeader.php";
 ?>
     <div id="wrapper">
